@@ -1,0 +1,99 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: visibility 0s 0.2s, opacity 0.2s 0.1s;
+
+  &.active {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: all;
+    transition: visibility 0s 0s, opacity 0s 0s;
+  }
+
+  &__backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: var(--black-color);
+    opacity: 0;
+    transition: var(--t-base);
+
+    .modal.active & {
+      opacity: 0.52;
+    }
+  }
+
+  &__dialog {
+    z-index: 1;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    transform: translateY(-100%);
+    transition: transform 0.5s ease-out;
+
+    .modal.active & {
+      transform: translateY(0);
+    }
+
+    .modal--rating & {
+      max-width: 520px;
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    padding: 88px 23px 33px 23px;
+    border: 5px solid var(--brown-color-1);
+    border-radius: 16px;
+    background-color: var(--brown-color-2);
+    pointer-events: all;
+  }
+
+  &__title-invisible {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+  }
+
+  &__bg-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transform: translateY(-50%);
+    pointer-events: none;
+    user-select: none;
+  }
+
+  &__close {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    z-index: 1;
+    width: 26px;
+    height: 26px;
+    background: url(/img/close.png) no-repeat center / contain;
+    transition: var(--t-base);
+    transition-duration: 0.06s;
+
+    &:hover {
+      transform: scale(1.09);
+    }
+  }
+}

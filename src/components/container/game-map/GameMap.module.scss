@@ -1,0 +1,163 @@
+$maxSteps: 52;
+$stepSpeed: 800ms;
+
+.map {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(to bottom, #149584 30%, #006b5f 70%);
+
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    grid-gap: 20px 0;
+    width: 980px;
+    margin: 0 auto;
+  }
+
+  &__cover {
+    position: relative;
+  }
+
+  &__image {
+    display: block;
+  }
+
+  &__shapes {
+    position: absolute;
+    inset: 0;
+  }
+
+  &__shape {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    padding: 2px;
+    border: 3px solid transparent;
+    border-radius: 50%;
+    background-color: transparent;
+    transition: 200ms ease-in;
+    background-clip: content-box;
+    cursor: pointer;
+
+    &:hover {
+      background-color: red;
+      border-color: red;
+    }
+
+    &:nth-child(1) {
+      bottom: 89px;
+      left: 434px;
+    }
+    &:nth-child(2) {
+      bottom: 121px;
+      left: 340px;
+    }
+    &:nth-child(3) {
+      bottom: 78px;
+      left: 267px;
+    }
+    &:nth-child(4) {
+      bottom: 59px;
+      left: 179px;
+    }
+    &:nth-child(5) {
+      bottom: 89px;
+      left: 99px;
+    }
+    &:nth-child(6) {
+      bottom: 150px;
+      left: 114px;
+    }
+    &:nth-child(7) {
+      bottom: 210px;
+      left: 135px;
+    }
+    &:nth-child(8) {
+      bottom: 246px;
+      left: 205px;
+    }
+    &:nth-child(9) {
+      bottom: 316px;
+      left: 165px;
+    }
+    &:nth-child(10) {
+      bottom: 370px;
+      left: 129px;
+    }
+    &:nth-child(11) {
+      bottom: 399px;
+      left: 190px;
+    }
+  }
+
+  &__obj {
+    position: absolute;
+    top: 438px;
+    left: 434px;
+    width: 21px;
+    height: 69px;
+    background: url(/img/woman.png) no-repeat center / contain;
+    animation-duration: $stepSpeed;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+
+    &--back {
+      animation-direction: alternate-reverse!important;
+    }
+  }
+}
+
+@for $i from 1 through $maxSteps {
+  .map__obj {
+    &--#{$i} {
+      animation-name: levelStep#{$i};
+    }
+  }
+
+  @keyframes levelStep#{$i} {
+    @if ($i == 2) {
+      from {top: 438px;left: 434px;} 50% {top: 395px;left: 371px;} to {top: 408px;left: 340px;}
+    }
+
+    @if ($i == 3) {
+      from {top: 408px;left: 340px;} to {top: 452px;left: 265px;}
+    }
+
+    @if ($i == 4) {
+      from {top: 452px;left: 265px;} to {top: 470px;left: 180px;}
+    }
+
+    @if ($i == 5) {
+      from {top: 470px;left: 180px;} to {top: 441px;left: 100px;}
+    }
+
+    @if ($i == 6) {
+      from {top: 441px;left: 100px;} 40% {top: 422px;left: 71px;} 60% {top: 407px;left: 75px;} to {top: 379px;left: 113px;}
+    }
+
+    @if ($i == 7) {
+      from {top: 379px;left: 113px;} 40% {top: 351px;left: 104px;} 55% {top: 339px;left: 111px;} to {top: 323px;left: 132px;}
+    }
+
+    @if ($i == 8) {
+      from {top: 323px;left: 132px;} to {top: 285px;left: 205px;}
+    }
+
+    @if ($i == 9) {
+      from {top: 285px;left: 205px;} 40% {top: 269px;left: 226px;} 55% {top: 252px;left: 224px;} to {top: 214px;left: 167px;}
+    }
+
+    @if ($i == 10) {
+      from {top: 214px;left: 167px;} 50% {top: 175px;left: 109px;} to {top: 161px;left: 129px;}
+    }
+
+    @if ($i == 11) {
+      from {top: 161px;left: 129px;} 36% {top: 148px;left: 152px;} 56% {top: 120px;left: 144px;} 76% {top: 116px;left: 177px;} to {top: 132px;left: 192px;}
+    }
+
+    @if ($i == 12) {
+      from {top: 132px;left: 192px;} to {top: 178px;left: 241px;}
+    }
+  }
+}

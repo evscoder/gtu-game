@@ -1,0 +1,8 @@
+.button {
+  transition: var(--t-base);
+  transition-duration: 0.06s;
+
+  &:hover {
+    transform: scale(0.98);
+  }
+}

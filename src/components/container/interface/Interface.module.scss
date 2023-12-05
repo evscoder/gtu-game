@@ -1,0 +1,40 @@
+.interface {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-chat {
+  width: 66px;
+  height: 60px;
+  border-radius: 3px;
+  background: url(/img/btn-chat.png) no-repeat center / contain;
+}
+
+.btn-next-level {
+  width: 191px;
+  height: 62px;
+  background: url(/img/btn-start.png) no-repeat center / contain;
+
+  &:hover {
+    transform: scale(1);
+  }
+
+  &.is-active {
+    transform: scale(0.95);
+    pointer-events: none;
+  }
+}
+
+.btn-email,
+.btn-rating {
+  width: 66px;
+  height: 62px;
+}
+
+.btn-email {
+  background: url(/img/btn-email.png) no-repeat center / contain;
+}
+
+.btn-rating {
+  background: url(/img/btn-rating.png) no-repeat center / contain;
+}
