@@ -1,2 +1,2 @@
-[Demo](https://evscoder.github.io/gtu-game/)
-[Coverage](https://evscoder.github.io/gtu-game/coverage/lcov-report/index.html)
+## Игра идти в университет.
+#### [Посмотреть проект](https://evscoder.github.io/gtu-game/)
